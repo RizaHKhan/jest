@@ -7,17 +7,10 @@ let multiply = (a, b) => a * b;
 let divide = (a, b) => a / b;
 
 let addAllPrimeNumbers = (num) => {
-  let primes = [2];
-  for (x = 3; x <= num; x += 2) {
-    primes.push(x);
-  }
-
-  for (i = 3; i <= Math.sqrt(num); i += 2) {
-    for (k = 0; k < primes.length; k++) {
-      if (primes[k] % i === 0 && primes[k] != i) {
-        primes.splice(k, 1);
-        k--;
-      }
+  let primes = [];
+  for (let x = 1; x <= num; x++) {
+    if (check_prime(x)) {
+      primes.push(x);
     }
   }
   return primes.reduce(
@@ -26,4 +19,46 @@ let addAllPrimeNumbers = (num) => {
   );
 };
 
-module.exports = { sum, subtract, multiply, divide, addAllPrimeNumbers };
+let check_prime = (num) => {
+  if (num === 1) {
+    return false;
+  } else if (num === 2) {
+    return true;
+  } else {
+    for (let y = 2; y < num; y++) {
+      if (num % y === 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+};
+
+let sumAllPrimes = (num) =>  {
+    let primesTotal = 0;
+
+    for (let i = 2; i < num; i++) {
+        for (let x = 2; x <= i; x++) {
+            // This is at the end of the loop
+            if (i === x) {
+                primesTotal += i
+            }
+            // This will break the loop before i gets to be x
+            if (i % x === 0) {
+                break
+            }
+        }
+    }
+
+    return primesTotal
+}
+
+module.exports = {
+  sum,
+  subtract,
+  multiply,
+  divide,
+  addAllPrimeNumbers,
+  check_prime,
+    sumAllPrimes
+};

@@ -4,6 +4,8 @@ const {
   multiply,
   divide,
   addAllPrimeNumbers,
+  check_prime,
+    sumAllPrimes
 } = require("./math.js");
 
 describe("math.js", () => {
@@ -31,4 +33,10 @@ describe("math.js", () => {
     const results = addAllPrimeNumbers(10);
     expect(results).toBe(17);
   });
+
+
+    it('should sum up all prime numbers', () => {
+        const results = sumAllPrimes(10)
+        expect(results).toBe(17)
+    })
 });
