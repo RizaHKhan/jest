@@ -34,24 +34,38 @@ let check_prime = (num) => {
   }
 };
 
-let sumAllPrimes = (num) =>  {
-    let primesTotal = 0;
+let sumAllPrimes = (num) => {
+  let primesTotal = 0;
 
-    for (let i = 2; i < num; i++) {
-        for (let x = 2; x <= i; x++) {
-            // This is at the end of the loop
-            if (i === x) {
-                primesTotal += i
-            }
-            // This will break the loop before i gets to be x
-            if (i % x === 0) {
-                break
-            }
-        }
+  for (let i = 2; i < num; i++) {
+    for (let x = 2; x <= i; x++) {
+      // This is at the end of the loop
+      if (i === x) {
+        primesTotal += i;
+      }
+      // This will break the loop before i gets to be x
+      if (i % x === 0) {
+        break;
+      }
     }
+  }
 
-    return primesTotal
-}
+  return primesTotal;
+};
+
+let evenDigitsOnly = (num) => {
+  let numArray = num.toString().split("");
+
+  for (let x = 0; x < numArray.length; x++) {
+    if (parseInt(numArray[x]) % 2 !== 0) {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+evenDigitsOnly(246322);
 
 module.exports = {
   sum,
@@ -60,5 +74,6 @@ module.exports = {
   divide,
   addAllPrimeNumbers,
   check_prime,
-    sumAllPrimes
+  sumAllPrimes,
+  evenDigitsOnly,
 };

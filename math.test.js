@@ -5,7 +5,8 @@ const {
   divide,
   addAllPrimeNumbers,
   check_prime,
-    sumAllPrimes
+  sumAllPrimes,
+  evenDigitsOnly,
 } = require("./math.js");
 
 describe("math.js", () => {
@@ -34,9 +35,22 @@ describe("math.js", () => {
     expect(results).toBe(17);
   });
 
+  it("should sum up all prime numbers", () => {
+    const results = sumAllPrimes(10);
+    expect(results).toBe(17);
+  });
 
-    it('should sum up all prime numbers', () => {
-        const results = sumAllPrimes(10)
-        expect(results).toBe(17)
-    })
+  it("should return true if all the digits are event", () => {
+    const nums = 248622;
+
+    const results = evenDigitsOnly(nums);
+    expect(results).toBe(true);
+  });
+
+  it("should return false if all the digits are event", () => {
+    const nums = 248322;
+
+    const results = evenDigitsOnly(nums);
+    expect(results).toBe(false);
+  });
 });
