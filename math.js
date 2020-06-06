@@ -53,19 +53,22 @@ let sumAllPrimes = (num) => {
   return primesTotal;
 };
 
-let evenDigitsOnly = (num) => {
-  let numArray = num.toString().split("");
+let evenDigitsOnly = (nums) => {
+  let myArray = nums.toString().split('')
+  return myArray.every(item => parseInt(item) % 2 === 0)
+}
 
-  for (let x = 0; x < numArray.length; x++) {
-    if (parseInt(numArray[x]) % 2 !== 0) {
-      return false;
+let allConsecutiveNums = (nums) => {
+  nums.sort((a, b) => a - b);
+  let missingNums = [];
+  for (let x = nums[0]; x <= nums[nums.length - 1]; x++) {
+    if (nums.indexOf(x) < 0) {
+      missingNums.push(x);
     }
   }
 
-  return true;
+  return missingNums.length;
 };
-
-evenDigitsOnly(246322);
 
 module.exports = {
   sum,
@@ -76,4 +79,5 @@ module.exports = {
   check_prime,
   sumAllPrimes,
   evenDigitsOnly,
+  allConsecutiveNums,
 };

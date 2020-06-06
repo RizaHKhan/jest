@@ -7,6 +7,7 @@ const {
   check_prime,
   sumAllPrimes,
   evenDigitsOnly,
+  allConsecutiveNums,
 } = require("./math.js");
 
 describe("math.js", () => {
@@ -52,5 +53,11 @@ describe("math.js", () => {
 
     const results = evenDigitsOnly(nums);
     expect(results).toBe(false);
+  });
+
+  it("should returns the length of the numbers missing from the lowest to highest value in the array", () => {
+    const array = [6, 2, 3, 9, 9, 10];
+    const results = allConsecutiveNums(array);
+    expect(results).toBe(4);
   });
 });
