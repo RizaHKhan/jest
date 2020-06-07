@@ -54,9 +54,9 @@ let sumAllPrimes = (num) => {
 };
 
 let evenDigitsOnly = (nums) => {
-  let myArray = nums.toString().split('')
-  return myArray.every(item => parseInt(item) % 2 === 0)
-}
+  let myArray = nums.toString().split("");
+  return myArray.every((item) => parseInt(item) % 2 === 0);
+};
 
 let allConsecutiveNums = (nums) => {
   nums.sort((a, b) => a - b);
@@ -71,17 +71,27 @@ let allConsecutiveNums = (nums) => {
 };
 
 let properNounCorrection = (str) => {
-    const newStr = str.toLowerCase().split('')
-    let newWord = ''
-    for (let x = 0; x < newStr.length; x++ ) {
-        if(x === 0) {
-            newStr[x] = newStr[x].toUpperCase()
-        }
-
-        newWord = newWord.concat(newStr[x])
+  const newStr = str.toLowerCase().split("");
+  let newWord = "";
+  for (let x = 0; x < newStr.length; x++) {
+    if (x === 0) {
+      newStr[x] = newStr[x].toUpperCase();
     }
 
-    return newWord
+    newWord = newWord.concat(newStr[x]);
+  }
+
+  return newWord;
+};
+
+let sumAllNumbersInRange = (arr) => {
+  let sum = 0
+  const newArray = arr.sort((a, b) => a - b)
+  for (let x = newArray[0]; x <= newArray[newArray.length - 1]; x++) {
+    sum += x
+  }
+
+  return sum
 }
 
 module.exports = {
@@ -94,5 +104,6 @@ module.exports = {
   sumAllPrimes,
   evenDigitsOnly,
   allConsecutiveNums,
-    properNounCorrection
+  properNounCorrection,
+  sumAllNumbersInRange
 };

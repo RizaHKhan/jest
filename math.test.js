@@ -8,7 +8,8 @@ const {
   sumAllPrimes,
   evenDigitsOnly,
   allConsecutiveNums,
-    properNounCorrection
+  properNounCorrection,
+  sumAllNumbersInRange,
 } = require("./math.js");
 
 describe("math.js", () => {
@@ -62,20 +63,50 @@ describe("math.js", () => {
     expect(results).toBe(4);
   });
 
-  it('should return 1', () => {
-    const array = [1, 3]
-    const results = allConsecutiveNums(array)
-    expect(results).toBe(1)
-  })
+  it("should return 1", () => {
+    const array = [1, 3];
+    const results = allConsecutiveNums(array);
+    expect(results).toBe(1);
+  });
 
-    it('should return the work with proper capitalizatoin', () => {
-        const str = 'pARIS'
-        const results = properNounCorrection(str)
-        expect(results).toBe('Paris')
-    })
-it('should return the work with proper capitalizatoin', () => {
-        const str = 'RARIS'
-        const results = properNounCorrection(str)
-        expect(results).toBe('Raris')
-    })
+  it("should return the work with proper capitalizatoin", () => {
+    const str = "pARIS";
+    const results = properNounCorrection(str);
+    expect(results).toBe("Paris");
+  });
+  it("should return the work with proper capitalizatoin", () => {
+    const str = "RARIS";
+    const results = properNounCorrection(str);
+    expect(results).toBe("Raris");
+  });
+
+  it("should add all numbers from the smallest to largest numbers", () => {
+    const array = [1, 4];
+    const results = sumAllNumbersInRange(array);
+    expect(results).toBe(10);
+  });
+
+  it("should add all numbers from the smallest to largest numbers", () => {
+    const array = [1, 2];
+    const results = sumAllNumbersInRange(array);
+    expect(results).toBe(3);
+  });
+
+  it("should add all numbers from the smallest to largest numbers", () => {
+    const array = [5, 7];
+    const results = sumAllNumbersInRange(array);
+    expect(results).toBe(18);
+  });
+
+  it("should add all numbers from the smallest to largest numbers", () => {
+    const array = [5, 10];
+    const results = sumAllNumbersInRange(array);
+    expect(results).toBe(45);
+  });
+
+  it("should add all numbers from the smallest to largest numbers", () => {
+    const array = [10, 5];
+    const results = sumAllNumbersInRange(array);
+    expect(results).toBe(45);
+  });
 });
