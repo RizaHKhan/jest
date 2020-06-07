@@ -85,14 +85,34 @@ let properNounCorrection = (str) => {
 };
 
 let sumAllNumbersInRange = (arr) => {
-  let sum = 0
-  const newArray = arr.sort((a, b) => a - b)
+  let sum = 0;
+  const newArray = arr.sort((a, b) => a - b);
   for (let x = newArray[0]; x <= newArray[newArray.length - 1]; x++) {
-    sum += x
+    sum += x;
   }
 
-  return sum
-}
+  return sum;
+};
+
+let diffTwoArrays = (arr1, arr2) => {
+  let newArray = [];
+
+  arr1.forEach((item) => {
+    if (!arr2.includes(item)) {
+      newArray.push(item);
+    }
+  });
+
+  arr2.forEach((item) => {
+    if (!arr1.includes(item)) {
+      newArray.push(item);
+    }
+  });
+
+  return newArray;
+};
+
+console.log(diffTwoArrays([1, 2, 3, 5], [1, 2, 3, 4, 5 ]));
 
 module.exports = {
   sum,
@@ -105,5 +125,6 @@ module.exports = {
   evenDigitsOnly,
   allConsecutiveNums,
   properNounCorrection,
-  sumAllNumbersInRange
+  sumAllNumbersInRange,
+  diffTwoArrays,
 };

@@ -10,6 +10,7 @@ const {
   allConsecutiveNums,
   properNounCorrection,
   sumAllNumbersInRange,
+  diffTwoArrays,
 } = require("./math.js");
 
 describe("math.js", () => {
@@ -108,5 +109,12 @@ describe("math.js", () => {
     const array = [10, 5];
     const results = sumAllNumbersInRange(array);
     expect(results).toBe(45);
+  });
+
+  it("compare two arrays and return a new array with any items found only in one of the two given arrays", () => {
+    const array1 = [1, 2, 3, 5];
+    const array2 = [1, 2, 3, 4, 5];
+    const results = diffTwoArrays(array1, array2);
+    expect(results).toStrictEqual([4]);
   });
 });
