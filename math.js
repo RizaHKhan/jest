@@ -112,7 +112,23 @@ let diffTwoArrays = (arr1, arr2) => {
   return newArray;
 };
 
-console.log(diffTwoArrays([1, 2, 3, 5], [1, 2, 3, 4, 5 ]));
+function seekAndDestroy() {
+  let argsArray = []
+  let arr = []
+  for (let x = 1; x < arguments.length; x++) {
+    argsArray.push(arguments[x])
+  }
+
+  arguments[0].forEach(item => {
+    if (!argsArray.includes(item)) {
+      arr.push(item)
+    }
+  })
+
+  return arr
+}
+
+console.log(seekAndDestroy([1, 2, 3, 1, 2, 3], 2, 3));
 
 module.exports = {
   sum,
@@ -127,4 +143,5 @@ module.exports = {
   properNounCorrection,
   sumAllNumbersInRange,
   diffTwoArrays,
+  seekAndDestroy,
 };

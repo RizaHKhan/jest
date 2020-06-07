@@ -11,6 +11,7 @@ const {
   properNounCorrection,
   sumAllNumbersInRange,
   diffTwoArrays,
+  seekAndDestroy,
 } = require("./math.js");
 
 describe("math.js", () => {
@@ -116,5 +117,20 @@ describe("math.js", () => {
     const array2 = [1, 2, 3, 4, 5];
     const results = diffTwoArrays(array1, array2);
     expect(results).toStrictEqual([4]);
+  });
+
+  it("should remove all elements from the intial array that are of the same value as these arguements", () => {
+    const results = seekAndDestroy([1, 2, 3, 1, 2, 3], 2, 3);
+    expect(results).toStrictEqual([1, 1]);
+  });
+
+  it("should remove all elements from the intial array that are of the same value as these arguements", () => {
+    const results = seekAndDestroy(["tree", "hamburger", 53], "tree", 53);
+    expect(results).toStrictEqual(["hamburger"]);
+  });
+
+  it("should remove all elements from the intial array that are of the same value as these arguements", () => {
+    const results = seekAndDestroy([3, 5, 1, 2, 2], 2, 3, 5);
+    expect(results).toStrictEqual([1]);
   });
 });
