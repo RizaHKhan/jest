@@ -70,6 +70,20 @@ let allConsecutiveNums = (nums) => {
   return missingNums.length;
 };
 
+let properNounCorrection = (str) => {
+    const newStr = str.toLowerCase().split('')
+    let newWord = ''
+    for (let x = 0; x < newStr.length; x++ ) {
+        if(x === 0) {
+            newStr[x] = newStr[x].toUpperCase()
+        }
+
+        newWord = newWord.concat(newStr[x])
+    }
+
+    return newWord
+}
+
 module.exports = {
   sum,
   subtract,
@@ -80,4 +94,5 @@ module.exports = {
   sumAllPrimes,
   evenDigitsOnly,
   allConsecutiveNums,
+    properNounCorrection
 };

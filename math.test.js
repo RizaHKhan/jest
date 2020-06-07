@@ -8,6 +8,7 @@ const {
   sumAllPrimes,
   evenDigitsOnly,
   allConsecutiveNums,
+    properNounCorrection
 } = require("./math.js");
 
 describe("math.js", () => {
@@ -60,4 +61,21 @@ describe("math.js", () => {
     const results = allConsecutiveNums(array);
     expect(results).toBe(4);
   });
+
+  it('should return 1', () => {
+    const array = [1, 3]
+    const results = allConsecutiveNums(array)
+    expect(results).toBe(1)
+  })
+
+    it('should return the work with proper capitalizatoin', () => {
+        const str = 'pARIS'
+        const results = properNounCorrection(str)
+        expect(results).toBe('Paris')
+    })
+it('should return the work with proper capitalizatoin', () => {
+        const str = 'RARIS'
+        const results = properNounCorrection(str)
+        expect(results).toBe('Raris')
+    })
 });
