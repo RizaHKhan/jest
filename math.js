@@ -113,22 +113,38 @@ let diffTwoArrays = (arr1, arr2) => {
 };
 
 function seekAndDestroy() {
-  let argsArray = []
-  let arr = []
+  let argsArray = [];
+  let arr = [];
   for (let x = 1; x < arguments.length; x++) {
-    argsArray.push(arguments[x])
+    argsArray.push(arguments[x]);
   }
 
-  arguments[0].forEach(item => {
+  arguments[0].forEach((item) => {
     if (!argsArray.includes(item)) {
-      arr.push(item)
+      arr.push(item);
     }
-  })
+  });
 
-  return arr
+  return arr;
 }
 
-console.log(seekAndDestroy([1, 2, 3, 1, 2, 3], 2, 3));
+function whatIsInAName(collection, source) {
+  let srcKeys = Object.keys(source);
+
+  return collection.filter((obj) => {
+    for (let i = 0; i < srcKeys.length; i++) {
+      if (
+        !obj.hasOwnProperty(srcKeys[i]) ||
+        obj[srcKeys[i]] !== source[srcKeys[i]]
+      ) {
+        return false;
+      }
+    }
+    return true;
+  });
+}
+
+whatIsInAName([{ apple: 1 }, { apple: 1 }, { apple: 1, bat: 2 }], { apple: 1 });
 
 module.exports = {
   sum,
@@ -144,4 +160,5 @@ module.exports = {
   sumAllNumbersInRange,
   diffTwoArrays,
   seekAndDestroy,
+  whatIsInAName,
 };

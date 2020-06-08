@@ -12,6 +12,7 @@ const {
   sumAllNumbersInRange,
   diffTwoArrays,
   seekAndDestroy,
+  whatIsInAName,
 } = require("./math.js");
 
 describe("math.js", () => {
@@ -132,5 +133,40 @@ describe("math.js", () => {
   it("should remove all elements from the intial array that are of the same value as these arguements", () => {
     const results = seekAndDestroy([3, 5, 1, 2, 2], 2, 3, 5);
     expect(results).toStrictEqual([1]);
+  });
+
+  it("should return an array of all objects that have matching name and value pairs", () => {
+    const results = whatIsInAName(
+      [
+        { first: "Romeo", last: "Montague" },
+        { first: "Mercutio", last: null },
+        { first: "Tybalt", last: "Capulet" },
+      ],
+      { last: "Capulet" }
+    );
+    expect(results).toStrictEqual([{ first: "Tybalt", last: "Capulet" }]);
+  });
+
+  it("should return an array of all objects that have matching name and value pairs", () => {
+    const results = whatIsInAName(
+      [{ apple: 1 }, { apple: 1 }, { apple: 1, bat: 2 }],
+      { apple: 1 }
+    );
+    expect(results).toStrictEqual([
+      { apple: 1 },
+      { apple: 1 },
+      { apple: 1, bat: 2 },
+    ]);
+  });
+
+  it("should return an array of all objects that have matching name and value pairs", () => {
+    const results = whatIsInAName(
+      [{ apple: 1, bat: 2 }, { bat: 2 }, { apple: 1, bat: 2, cookie: 2 }],
+      { apple: 1, bat: 2 }
+    );
+    expect(results).toStrictEqual([
+      { apple: 1, bat: 2 },
+      { apple: 1, bat: 2, cookie: 2 },
+    ]);
   });
 });
