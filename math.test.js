@@ -1,4 +1,5 @@
 const {
+  translatePigLatin,
   spinalCase,
   sum,
   subtract,
@@ -171,28 +172,45 @@ describe("math.js", () => {
     ]);
   });
 
-  it('should covert string to spinal case', () => {
-    const results = spinalCase('This Is Spinal Tap')
-    expect(results).toBe('this-is-spinal-tap')
-  })
+  it("should covert string to spinal case", () => {
+    const results = spinalCase("This Is Spinal Tap");
+    expect(results).toBe("this-is-spinal-tap");
+  });
 
-  it('should covert string to spinal case', () => {
-    const results = spinalCase('The_Andy_Griffith_Show')
-    expect(results).toBe('the-andy-griffith-show')
-  })
+  it("should covert string to spinal case", () => {
+    const results = spinalCase("The_Andy_Griffith_Show");
+    expect(results).toBe("the-andy-griffith-show");
+  });
 
-  it('should covert string to spinal case', () => {
-    const results = spinalCase('Teletubbies say Eh-oh')
-    expect(results).toBe('teletubbies-say-eh-oh')
-  })
+  it("should covert string to spinal case", () => {
+    const results = spinalCase("Teletubbies say Eh-oh");
+    expect(results).toBe("teletubbies-say-eh-oh");
+  });
 
-  it('should covert string to spinal case', () => {
-    const results = spinalCase('thisIsSpinalTap')
-    expect(results).toBe('this-is-spinal-tap')
-  })
+  it("should covert string to spinal case", () => {
+    const results = spinalCase("thisIsSpinalTap");
+    expect(results).toBe("this-is-spinal-tap");
+  });
 
-  it('should covert string to spinal case', () => {
-    const results = spinalCase('AllThe-small Things')
-    expect(results).toBe('all-the-small-things')
-  })
+  it("should covert string to spinal case", () => {
+    const results = spinalCase("AllThe-small Things");
+    expect(results).toBe("all-the-small-things");
+  });
+
+  it("should translate to pig latin", () => {
+    const results = translatePigLatin("california");
+    expect(results).toBe("aliforniacay");
+  });
+  it("should translate to pig latin", () => {
+    const results = translatePigLatin("paragraphs");
+    expect(results).toBe("aragraphspay");
+  });
+  it("should translate to pig latin", () => {
+    const results = translatePigLatin("glove");
+    expect(results).toBe("oveglay");
+  });
+  it("should translate to pig latin", () => {
+    const results = translatePigLatin("eight");
+    expect(results).toBe("eightway");
+  });
 });

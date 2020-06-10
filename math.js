@@ -151,7 +151,24 @@ let spinalCase = (str) => {
     .toLowerCase()
 };
 
+let translatePigLatin = (str) => {
+  const consonatRegex = /^([^aeiou])+/g;
+  const vowelRegex = /^[aeiou]/;
+
+  if (vowelRegex.test(str)) {
+    return str.concat('way')
+  } else {
+    // Add the consonat to the end of the string and then convert the string to an array
+    let strArray = (str + str.match(consonatRegex) + 'ay').split('')
+    // remove the beginning constonant from the begining of the string. Splice() changes the original array
+    strArray.splice(0, str.match(consonatRegex)[0].length)
+    // Join the string together
+    return strArray.join('')
+  }
+}
+
 module.exports = {
+  translatePigLatin,
   spinalCase,
   sum,
   subtract,
