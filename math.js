@@ -140,13 +140,19 @@ function whatIsInAName(collection, source) {
         return false;
       }
     }
-    return true;
   });
 }
 
-whatIsInAName([{ apple: 1 }, { apple: 1 }, { apple: 1, bat: 2 }], { apple: 1 });
+let spinalCase = (str) => {
+  return str.replace(/([A-Z])/g, ' $1')
+    .replace(/[^A-Za-z0-9]/g, ' ')
+    .replace(/\s{1,}/g,'-')
+    .replace(/^\-|[\-]$/g, '')
+    .toLowerCase()
+};
 
 module.exports = {
+  spinalCase,
   sum,
   subtract,
   multiply,

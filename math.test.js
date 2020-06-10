@@ -1,4 +1,5 @@
 const {
+  spinalCase,
   sum,
   subtract,
   multiply,
@@ -169,4 +170,29 @@ describe("math.js", () => {
       { apple: 1, bat: 2, cookie: 2 },
     ]);
   });
+
+  it('should covert string to spinal case', () => {
+    const results = spinalCase('This Is Spinal Tap')
+    expect(results).toBe('this-is-spinal-tap')
+  })
+
+  it('should covert string to spinal case', () => {
+    const results = spinalCase('The_Andy_Griffith_Show')
+    expect(results).toBe('the-andy-griffith-show')
+  })
+
+  it('should covert string to spinal case', () => {
+    const results = spinalCase('Teletubbies say Eh-oh')
+    expect(results).toBe('teletubbies-say-eh-oh')
+  })
+
+  it('should covert string to spinal case', () => {
+    const results = spinalCase('thisIsSpinalTap')
+    expect(results).toBe('this-is-spinal-tap')
+  })
+
+  it('should covert string to spinal case', () => {
+    const results = spinalCase('AllThe-small Things')
+    expect(results).toBe('all-the-small-things')
+  })
 });
